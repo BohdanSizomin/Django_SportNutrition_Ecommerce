@@ -8,7 +8,8 @@ media
 .env
 django_ecommerce_venv
 .idea
-
+media
+static/images
 # Backup files #
 *.bak
 

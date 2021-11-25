@@ -1,9 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 
 # Create your views here.
 def index(request):
-    
     context = {
         "title": "Welcome to our sport nutrition shop",
         "keywords": "ecommerce,sport nutrition,buy sport nutrition,protein buy"
@@ -23,3 +22,10 @@ def about(request):
         "title": "About us",
     }
     return render(request, 'about.html', context)
+
+
+def what_to_choose(request):
+    context = {
+        "title": "Don`t know how to choose sport nutrition ?",
+    }
+    return render(request, 'whattochoose.html', context)
