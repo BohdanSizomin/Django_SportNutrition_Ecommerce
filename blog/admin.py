@@ -28,10 +28,20 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(UserTrainer, CustomUserAdmin)
 
-
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('article', 'slug', 'trainer')
     list_display_links = ('article',)
-    fields = ('article', 'slug', 'keywords', 'text', 'trainer')
-    readonly_fields = ()
+    fields = ('article', 'slug', 'keywords', 'text',)
+    readonly_fields = ('trainer',)
+
+    def save_model(self, request, obj, form, change):
+        obj.trainer = request.user
+        super().save_model(request, obj, form, change)
+
+# @admin.register(Post)
+# class PostAdmin(admin.ModelAdmin):
+#     list_display = ('article', 'slug', 'trainer')
+#     list_display_links = ('article',)
+#     fields = ('article', 'slug', 'keywords', 'text', 'trainer')
+#     readonly_fields = ()
