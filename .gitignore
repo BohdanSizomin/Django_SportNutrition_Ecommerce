@@ -10,6 +10,8 @@ django_ecommerce_venv
 .idea
 media
 static/images
+media
+uploads
 # Backup files #
 *.bak
 
