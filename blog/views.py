@@ -6,5 +6,8 @@ from .models import Post, UserTrainer
 # Create your views here.
 
 # настроить вьюху,сделать миграции,настроить шаблоны для прложения блог,добавитть тренеров,добавить посты
-def article(request):
-    return render(request, 'article.html')
+class PostListView(ListView):
+    model = Post
+    template_name = 'article.html'
+    context_object_name = 'post'
+    paginate_by = 3

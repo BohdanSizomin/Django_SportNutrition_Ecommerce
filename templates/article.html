@@ -21,131 +21,46 @@
             <section class="text-center">
                 <h4 class="mb-5"><strong>Latest posts</strong></h4>
 
-                <!--  Row -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 mb-4">
+
+                {% for post in object_list %}
+                    {% if post.is_published %}
+
+                        {% if forloop.first %}
+                            <!--  Row -->
+                            <div class="row">
+                        {% endif %}
+
+                    <div id="latestposts" class="col-lg-4 col-md-12 mb-4">
                         <div class="card">
                             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
+                                <img src="{{ post.preview_image.url }}"
+                                     class=""/>
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Post title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's content.
-                                </p>
-                                <a href="post.html" class="btn btn-primary article-read-btn">Read</a>
+                                <h5 class="card-title">{{ post.article }}</h5>
+                                <p>Here you will learn something new !</p>
+                                <a href="#" class="btn btn-primary article-read-btn">Read</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid"/>
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Post title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's content.
-                                </p>
-                                <a href="#!" class="btn btn-primary article-read-btn">Read</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid"/>
-                                <a href="#!">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Post title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's content.
-                                </p>
-                                <a href="#!" class="btn btn-primary article-read-btn">Read</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 mb-4">
-                            <div class="card">
-                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                         class="img-fluid"/>
-                                    <a href="#!">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Post title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary article-read-btn">Read</a>
-                                </div>
-                            </div>
+                    {% if forloop.counter|divisibleby:"3" %}
                         </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg"
-                                         class="img-fluid"/>
-                                    <a href="#!">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Post title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary article-read-btn">Read</a>
-                                </div>
-                            </div>
+                        {% if not forloop.last %}
+                            <div class="row">
+                        {% endif %}
+                    {% endif %}
+                    {% if forloop.last %}
                         </div>
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
 
 
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                    <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg"
-                                         class="img-fluid"/>
-                                    <a href="#!">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Post title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's content.
-                                    </p>
-                                    <a href="#!" class="btn btn-primary article-read-btn">Read</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </section>
         </div>
     </main>
@@ -153,19 +68,35 @@
 
     <!-- Pagination -->
     <nav aria-label="Page navigation example">
+
+        <div class="span12 text-center mb-3">
+
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+        </div>
+
         <ul class="pagination justify-content-center">
+
+
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% endif %}
+
             <li class="page-item">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                <a class="page-link" href="#latestposts">{{ page_obj.number }}</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+
+            {% endif %}
+
         </ul>
+
     </nav>
 
 
