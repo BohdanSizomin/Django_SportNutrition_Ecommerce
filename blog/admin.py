@@ -42,6 +42,16 @@ class PostAdmin(admin.ModelAdmin):
         obj.trainer = request.user
         super().save_model(request, obj, form, change)
 
+    def has_change_permission(self, request, obj=None):
+        if obj is not None and obj.trainer != request.user:
+            return False
+        return True
+
+    def has_delete_permission(self, request, obj=None):
+        if obj is not None and obj.trainer != request.user:
+            return False
+        return True
+
 # @admin.register(Post)
 # class PostAdmin(admin.ModelAdmin):
 #     list_display = ('article', 'slug', 'trainer')
