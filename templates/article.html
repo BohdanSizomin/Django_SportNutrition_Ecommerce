@@ -4,14 +4,12 @@
 
 {% block content %}
     <!-- Selectbox -->
-    <div class="sort">
-        <select class="select-box-sort">
-            <option>New</option>
-            <option>Sort by quantity</option>
-            <option>Sort by price (ascending)</option>
-            <option>Sort by price (descending)</option>
-        </select>
-    </div>
+        <div class="sort">
+            <select class="select-box-sort">
+                <option>Newest first</option>
+                <option>Oldest first</option>
+            </select>
+        </div>
 
 
     <!--Main layout-->
@@ -41,8 +39,9 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ post.article }}</h5>
-                                <p>Here you will learn something new !</p>
-                                <a href="#" class="btn btn-primary article-read-btn">Read</a>
+                                <p style="">Here you will learn something new !</p>
+                                <a href="{% url 'post-detail' post.slug %}"
+                                   class="btn btn-primary article-read-btn">Read</a>
                             </div>
                         </div>
                     </div>

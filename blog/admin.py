@@ -31,10 +31,10 @@ admin.site.register(UserTrainer, CustomUserAdmin)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('article', 'slug', 'trainer')
+    list_display = ('article', 'slug', 'trainer',)
     list_display_links = ('article',)
-    fields = ('article', 'slug', 'keywords', 'text', 'preview_image', 'is_published')
-    readonly_fields = ('trainer',)
+    fields = ('article', 'slug', 'keywords', 'text', 'preview_image', 'is_published', 'created_at')
+    readonly_fields = ('trainer', 'created_at')
     list_filter = ('article', 'is_published')
     search_fields = ('trainer', 'article')
 

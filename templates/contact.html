@@ -41,6 +41,15 @@
                 <br>Account number: 1234567890123456789
                 <br>IBAN : PL1234567890123456789</p>
         </div>
+        <br>
+        <h1 class="display-5 contact-information-header">Contact Form</h1>
+        <br>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
 
 
     </div>{% endblock %}

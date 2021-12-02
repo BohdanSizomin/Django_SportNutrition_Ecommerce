@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -41,18 +43,27 @@ class Post(models.Model):
     slug = models.SlugField(max_length=30)
     keywords = models.CharField(max_length=100, )
     text = RichTextUploadingField(blank=True, null=True)
-    trainer = models.ForeignKey(UserTrainer, on_delete=models.CASCADE, null=False, default=0)
+    trainer = models.ForeignKey(UserTrainer, on_delete=models.CASCADE, null=False, default=0, related_name='post')
     preview_image = models.ImageField(upload_to='media/stuff_images/post_previews', null=False, default=0,
                                       validators=[picture_dimesions_validation(256, 256)])
     is_published = models.BooleanField(null=True, default=True)
 
-    #
+    created_at = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
         return self.article
 
-    def get_absolute_url(self):
-        return reverse('', kwargs={'pk': self.slug})
+    # def get_absolute_url(self):
+    #     return reverse('', kwargs={'pk': self.slug})
+
+    def get_trainer_data(self):
+        return f'Post by : {self.trainer.first_name} {self.trainer.last_name} , {self.trainer.age} y.o.'
+
+    def get_trainer_socials(self):
+        return self.trainer.inst
+
+    def get_trainer_info(self):
+        return self.trainer.info
 
     class Meta:
         verbose_name = 'Post'

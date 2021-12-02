@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %} {{ title }}{% endblock %}
+
+
+{% block content %}
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center" style="height:500px;width:100%;">
+        <h1 class="display-4 fw-normal"><i class="fas fa-exclamation"></i> Something went wrong !</h1>
+        <p class="fs-5 text-muted">That seems you provided incorrect data ! </p>
+        <p class="fs-5 text-muted">Please,check your input data and try again </p>
+        <a href="{% url 'contact' %}">Try again </a>
+    </div>
+
+{% endblock %}
