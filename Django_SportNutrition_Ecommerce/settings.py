@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'home',
-    'blog',
     'contact',
     'users',
+    'cart',
+    # 'blog',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'home.context_processor.menu_links',
+                'cart.context_processor.counter',
             ],
         },
     },
@@ -134,6 +138,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-AUTH_USER_MODEL = 'blog.UserTrainer'
+AUTH_USER_MODEL = 'users.Account'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+# In case of login/logout we always redirect to main page !
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'

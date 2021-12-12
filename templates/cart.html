@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+    {% if not cart_items %}
+
+        <section class="jumbotron text-center">
+            <div class="container mt-5 mb-5">
+                <h1 class="jumbotron-heading">E-COMMERCE CART</h1>
+            </div>
+        </section>
+
+
+        <h2 class="text-center">Your shopping cart is Empty</h2>
+        <br>
+        <div class="text-center">
+            <a href="{% url 'index' %}" class="btn btn-dark my-3">GO SHOPPING !</a>
+        </div>
+
+    {% else %}
+        <section class="jumbotron text-center">
+            <div class="container mt-5 mb-5">
+                <h1 class="jumbotron-heading">E-COMMERCE CART</h1>
+            </div>
+        </section>
+
+
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Available</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col" class="text-right">Price</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+
+
+                            <tbody>
+
+                            {% for cart_item in cart_items %}
+                                <tr>
+                                    <td><img class="cart-image" src="{{ cart_item.product.image.url }}"/></td>
+                                    <td><a href="{{ cart_item.product.get_url }}"
+                                           style="color:black;text-decoration: underline;">{{ cart_item.product.name }}</a>
+                                        {% if cart_item.variations.all %}
+                                            {% for item in cart_item.variations.all %}
+                                                <p style="font-size:12px;margin-top:5px;">{{ item.variation_category | capfirst }}: {{ item.variation_value | capfirst }}</p>
+                                            {% endfor %}
+
+                                        {% endif %}
+                                    </td>
+                                    <td>In stock</td>
+
+                                    <td>
+
+                                        <form action="{% url 'add_cart' cart_item.product.id %}" method="POST">
+                                            {% csrf_token %}
+                                            {% for item in cart_item.variations.all %}
+                                                <input type="hidden" name="{{ item.variation_category | lower }}"
+                                                       value="{{ item.variation_value | capfirst }}">
+
+                                            {% endfor %}
+                                            <button href="{% url 'add_cart' cart_item.product.id %}"
+                                                    class="btn btn-block btn-light"><i
+                                                    class="fas fa-cart-plus"></i></button>
+
+                                        </form>
+
+                                        <span style="margin:60%">{{ cart_item.quantity }}</span>
+
+                                        <a href="{% url 'remove-cart' cart_item.product.id cart_item.id %}"
+                                           class="btn btn-block btn-light"><i class="fa fa-minus"
+                                                                              aria-hidden="true"></i></a>
+                                    </td>
+
+                                    <td class="text-right">{{ cart_item.product.price }} $</td>
+
+                                    <td class="text-right">
+                                        <a href="{% url 'remove-cart-item' cart_item.product.id cart_item.id %}" onclick="return alert('Do you really want to delete this item(s) from cart ?')"
+                                           class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+
+                                </tr>
+
+
+                            {% endfor %}
+
+
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Sub-Total</td>
+                                <td class="text-right">{{ total }} $</td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Tax (0.02%)</td>
+                                <td class="text-right">{{ tax }}$</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Total</strong></td>
+                                <td class="text-right"><strong>{{ grand_total }}$</strong></td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col mb-2">
+                    <div class="row">
+                        <div class="col-sm-12  col-md-6">
+                            <a href="{% url 'index' %}" class="btn btn-block btn-light">Continue Shopping</a>
+                        </div>
+
+                        <form action="checkout.html">
+                            <div class="col-sm-12 col-md-6 text-right mt-3">
+                                <button class="btn btn-lg btn-block btn-dark">Checkout</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

@@ -3,6 +3,7 @@
 
 <head>
     {% load static %}
+
     <title>{% block title %}{% endblock %}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -51,6 +52,7 @@
 
 <body>
 <!-- Navigation START -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <!-- Logo -->
@@ -72,7 +74,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'article' %}">Articles</a>
+                    <a class="nav-link" href="#">Articles</a>
                 </li>
 
                 <li class="nav-item">
@@ -91,74 +93,15 @@
                     <div class="dropdown-menu">
 
                         <!-- Proteins -->
-                        <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                            <hr>
-                            <h3><a class="category-link" href="category.html"><span
-                                    class="badge badge-secondary text-black mt-1">Proteins:</span></a></h3>
-                            <hr>
-                            <a class="dropdown-item black-border dropdown-hover-white"
-                               href="subcategory.html">Isolate</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Whey</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Caseine</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Collagen</a>
-                        </ul>
-
-                        <!-- Amino acid -->
-                        <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                            <hr>
-                            <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Amino acids:</span></a>
-                            </h3>
-                            <hr>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">BCAA</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Glutamine</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Glucosamine</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Arginine</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Complex</a>
-                        </ul>
-
-                        <!-- Creatine -->
-                        <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                            <hr>
-                            <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Creatine:</span></a>
-                            </h3>
-                            <hr>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Monohydrate</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">With transport
-                                system</a>
-                        </ul>
-
-                        <!-- Gainer -->
-                        <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                            <hr>
-                            <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Gainers:</span></a>
-                            </h3>
-                            <hr>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">High protein gainers</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">High carbohydrates
-                                gainers</a>
-                        </ul>
-
-                        <!-- Fat burners -->
-                        <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                            <hr>
-                            <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Fat burners:</span></a>
-                            </h3>
-                            <hr>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Complex</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">L-Carnitine</a>
-                        </ul>
-
-                        <!-- Accesories -->
-                        <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                            <hr>
-                            <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Accesories:</span></a>
-                            </h3>
-                            <hr>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Crossfit Gloves</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Shakers</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Belts</a>
-                            <a class="dropdown-item black-border dropdown-hover-white" href="#">Straps</a>
-                        </ul>
+                        {% for category in links %}
+                            <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
+                                <hr>
+                                <h3><a class="category-link" href="{{ category.get_url }}"><span
+                                        class="badge badge-secondary text-black mt-1">{{ category.name }}</span></a>
+                                </h3>
+                                <hr>
+                            </ul>
+                        {% endfor %}
 
                         <div class="dropdown-divider"></div>
                         <a id="dont-know-what-to-choose" class="dropdown-item dropdown-hover-white font-size-14"
@@ -175,16 +118,17 @@
                </li> -->
 
                 <li class="nav-item">
-                    <a id='cart-nav-button' class="nav-link" href="#"><i class="fas fa-shopping-cart"
-                                                                         style="margin-right:5px;font-size:16px;color:white">
+                    <a id='cart-nav-button' class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"
+                                                                                        style="margin-right:5px;font-size:16px;color:white">
                     </i>
-                        <!-- amount of items in cart -->(2) Cart</a>
+                        <!-- amount of items in cart -->({{ cart_count }}) Cart</a>
                 </li>
 
                 <li class="nav-item white-bg">
                     <a id="login-nav-button" class="nav-link" href="{% url 'login' %}" style=""><img id="login-icon"
-                                                                                     src="{% static 'images/login.png' %}"
-                                                                                     style="margin-right:5px">Log in
+                                                                                                     src="{% static 'images/login.png' %}"
+                                                                                                     style="margin-right:5px">Log
+                        in
 
 
                     </a>
@@ -192,8 +136,9 @@
 
                 <li class="nav-item white-bg">
                     <a id="signup-nav-button" class="nav-link" href="{% url 'sign-up' %}"><img id="sign-up-icon"
-                                                                             src="{% static 'images/signup.png' %}"
-                                                                             style="margin-right:5px">Sign up</a>
+                                                                                               src="{% static 'images/signup.png' %}"
+                                                                                               style="margin-right:5px">Sign
+                        up</a>
                 </li>
 
 
@@ -266,7 +211,7 @@
         </div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
-            <li class="list-inline-item"><a href="{% url 'article' %}">Articles</a></li>
+            <li class="list-inline-item"><a href="#">Articles</a></li>
             <li class="list-inline-item"><a href="{% url 'contact' %}">Contact</a></li>
             <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
         </ul>
@@ -274,5 +219,20 @@
     </footer>
 </div>
 <!-- Footer END -->
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () { // check whether your page is loadded fully
+        $("img").each(function () {   // for each img it will assign img-responsive class or img-fluid
+            $(this).addClass("img-responsive")
+        })
+    })
+</script>
+
 </body>
 </html>

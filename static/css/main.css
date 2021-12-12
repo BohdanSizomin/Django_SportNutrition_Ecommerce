@@ -111,11 +111,11 @@ a {
 }
 
 .dropdown-item {
-    padding: 2vh;
+    padding: 1.5vh;
 }
 
 .nav-product-dropdown a {
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
 }
 
@@ -368,6 +368,13 @@ nav .category-link:hover {
     color: white;
 }
 
+.purchase-link-button {
+    transition: 0.5s;
+}
+
+.purchase-link-button:hover {
+    font-size: 20px;
+}
 
 @media (max-width: 999px) {
     .card {
@@ -672,6 +679,11 @@ About styles
 
 .product-detail-in-stock-badge {
     color: green;
+    font-size: 20px
+}
+
+.product-detail-out-of-stock-badge {
+    color: red;
     font-size: 20px
 }
 
