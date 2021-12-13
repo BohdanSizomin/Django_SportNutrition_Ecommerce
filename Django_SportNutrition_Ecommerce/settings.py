@@ -146,3 +146,17 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TEXT = {
+    messages.ERROR: 'danger',
+}
+
+# SMTP CONFIGURATION
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nbzp28@gmail.com'
+EMAIL_HOST_PASSWORD = 'odxqktveylvvpzlf'
+EMAIL_USE_TLS = True

@@ -73,9 +73,11 @@
                     </a>
                 </li>
 
+                {% if user.id is not None %}
                 <li class="nav-item">
                     <a class="nav-link" href="#">Articles</a>
                 </li>
+            {% endif %}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
@@ -117,38 +119,58 @@
                  <a id ='phone-number'class="nav-link" href="tel:+48739500284"><img id="phone-icon" src="images/phone.png">+48739500284</a>
                </li> -->
 
-                <li class="nav-item">
-                    <a id='cart-nav-button' class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"
-                                                                                        style="margin-right:5px;font-size:16px;color:white">
-                    </i>
-                        <!-- amount of items in cart -->({{ cart_count }}) Cart</a>
-                </li>
+                {% if user.id is None %}
+                    <li class="nav-item">
+                        <a id='cart-nav-button' class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"
+                                                                                            style="margin-right:5px;font-size:16px;color:white">
+                        </i>
+                            <!-- amount of items in cart -->({{ cart_count }}) Cart</a>
+                    </li>
 
-                <li class="nav-item white-bg">
-                    <a id="login-nav-button" class="nav-link" href="{% url 'login' %}" style=""><img id="login-icon"
-                                                                                                     src="{% static 'images/login.png' %}"
-                                                                                                     style="margin-right:5px">Log
-                        in
+                    <li class="nav-item white-bg">
+                        <a id="login-nav-button" class="nav-link" href="{% url 'login' %}" style=""><img id="login-icon"
+                                                                                                         src="{% static 'images/login.png' %}"
+                                                                                                         style="margin-right:5px">
+                            Log in
+                        </a>
+                    </li>
+
+                    <li class="nav-item white-bg">
+                        <a id="signup-nav-button" class="nav-link" href="{% url 'sign-up' %}"><img id="sign-up-icon"
+                                                                                                   src="{% static 'images/signup.png' %}"
+                                                                                                   style="margin-right:5px">
+                            Sign up</a>
+                    </li>
 
 
-                    </a>
-                </li>
+                {% else %}
 
-                <li class="nav-item white-bg">
-                    <a id="signup-nav-button" class="nav-link" href="{% url 'sign-up' %}"><img id="sign-up-icon"
-                                                                                               src="{% static 'images/signup.png' %}"
-                                                                                               style="margin-right:5px">Sign
-                        up</a>
-                </li>
+                    <li class="nav-item">
+                        <a id='cart-nav-button' class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"
+                                                                                            style="margin-right:5px;font-size:16px;color:white">
+                        </i>
+                            <!-- amount of items in cart -->({{ cart_count }}) Cart</a>
+                    </li>
 
 
-                <!-- If user is authorized -->
-                <li class="nav-item white-bg">
-                    <a id="user-profile-button" class="nav-link" href="profile.html"><i class="fas fa-address-card"></i>
-                        User profile</a>
-                </li>
+                    <li class="nav-item white-bg">
+                        <a id="user-profile-button" class="nav-link" href="#"><i
+                                class="fas fa-address-card"></i>
+                            User profile</a>
+                    </li>
 
-            </ul>
+
+                    <li class="nav-item white-bg">
+                        <a id="user-profile-button" class="nav-link" href="{% url 'logout' %}"><i
+                                class="fas fa-sign-out-alt"></i>
+                            Logout</a>
+                    </li>
+
+
+                    </ul>
+                {% endif %}
+
+
         </div>
     </div>
 </nav>
@@ -225,14 +247,16 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () { // check whether your page is loadded fully
-        $("img").each(function () {   // for each img it will assign img-responsive class or img-fluid
-            $(this).addClass("img-responsive")
-        })
-    })
-</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+{#<script type="text/javascript">#}
+{#    $(document).ready(function () { // check whether your page is loadded fully#}
+{#        $("img").each(function () {   // for each img it will assign img-responsive class or img-fluid#}
+{#            $(this).addClass("img-responsive")#}
+{#        })#}
+{#    })#}
+{#</script>#}
 
 </body>
 </html>
