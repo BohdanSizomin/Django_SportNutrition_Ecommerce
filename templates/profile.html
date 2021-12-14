@@ -1,236 +1,80 @@
-    <!doctype html>
-  <html lang="en">
-  <head>
-    <title>Sklep Internetowy</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap+Fontawesome CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.2/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-qHZDARcDE4rvRsEXG23QUfqK+Pz9TDOdzRs1YuUyn4PfjMAJ9PbHcIZwg0Dx2yMP" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.2/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-qHZDARcDE4rvRsEXG23QUfqK+Pz9TDOdzRs1YuUyn4PfjMAJ9PbHcIZwg0Dx2yMP" crossorigin="anonymous">
-
-    <!-- Custom css -->
-
-    <link rel="stylesheet" type="text/css" href="css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
-    <!--  Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/bb9ddd2a81.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% extends 'base.html' %}
 
 
-  </head>
+{% block content %}
+    <!-- PROFILE -->
 
-  <body>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                                                                                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span
+                        class="font-weight-bold">Amelly</span><span
+                        class="text-black-50">amelly12@bbb.com</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
 
-    <!-- Navigation START -->
-    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container" >
-        <!-- Logo -->
-        <a id="logo" class="navbar-brand" href="#">BWT</a>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                                                                                       placeholder="First name"
+                                                                                       value=""></div>
+                        <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                                                                                          class="form-control" value=""
+                                                                                          placeholder="Surname"></div>
+                    </div>
 
-        <!-- Mobile devices burger button -->
-        <button  class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                    <div class="row mt-3">
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
-          <ul class="navbar-nav me-auto">
+                        <div class="col-md-12"><label class="labels">Phone Number</label><input type="text"
+                                                                                                class="form-control"
+                                                                                                placeholder="Enter phone number"
+                                                                                                value=""></div>
 
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home
-                <span class="visually-hidden">(current)</span>
-              </a>
-            </li>
+                        <div class="col-md-12"><label class="labels">Address</label><input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="Enter address"
+                                                                                           value=""></div>
 
-            <li class="nav-item">
-              <a class="nav-link" href="article.html">Articles</a>
-            </li>
+                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
+                                                                                            class="form-control"
+                                                                                            placeholder="Enter email"
+                                                                                            value=""></div>
+                    </div>
 
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                                                                          class="form-control"
+                                                                                          placeholder="Country"
+                                                                                          value=""></div>
 
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
+                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
+                                                                                               class="form-control"
+                                                                                               value=""
+                                                                                               placeholder="State">
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                        <button class="btn btn-primary profile-button" type="button">Reset password</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Dropdown menu -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-              aria-haspopup="true" aria-expanded="false">Products</a>
-
-              <div class="dropdown-menu">
-
-                <!-- Proteins -->
-                <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                  <hr>
-                  <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Proteins</span></a></h3>
-                  <hr>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Isolate</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Whey</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Caseine</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Collagen</a>
-                </ul>
-
-                <!-- Amino acid -->
-                <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                  <hr>
-                  <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Amino acids</span></a></h3>
-                  <hr>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">BCAA</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Glutamine</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Glucosamine</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Arginine</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Complex</a>
-                </ul>
-
-                <!-- Creatine -->
-                <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                  <hr>
-                  <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Creatine</span></a></h3>
-                  <hr>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Monohydrate</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">With transport system</a>
-                </ul>
-
-                <!-- Gainer -->
-                <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                  <hr>
-                  <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Gainers</span></a></h3>
-                  <hr>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">High protein gainers</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">High carbohydrates gainers</a>
-                </ul>
-
-                <!-- Fat burners -->
-                <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                  <hr>
-                  <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Fat burners</span></a></h3>
-                  <hr>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Complex</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">L-Carnitine</a>
-                </ul>
-
-                <!-- Accesories -->
-                <ul class="navbar-nav me-auto dropdown-text-center nav-product-dropdown">
-                  <hr> 
-                  <h3><a class="category-link" href="#"><span class="badge badge-secondary text-black mt-1">Accesories</span></a> </h3>
-                  <hr>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Gloves</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Crossfit Gloves</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Shakers</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Belts</a>
-                  <a class="dropdown-item black-border dropdown-hover-white" href="#">Straps</a>
-                </ul>
-
-                <div class="dropdown-divider"></div>
-                <a id="dont-know-what-to-choose" class="dropdown-item dropdown-hover-white font-size-14" href="whattochoose.html">Don`t know what to choose ?</a>
-              </div>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav">
-
-           <!-- Phone
-            <li class="nav-item">
-            <a id ='phone-number'class="nav-link" href="tel:+48739500284"><img id="phone-icon" src="images/phone.png">+48739500284</a>
-          </li> -->
-
-          <li class="nav-item">
-            <a id ='cart-nav-button' class="nav-link" href="#"><i class="fas fa-shopping-cart" style="margin-right:5px;font-size:16px;color:white">
-            </i>
-            <!-- amount of items in cart -->(2) Cart</a>
-          </li>
-
-          <li class="nav-item white-bg">
-            <a id="login-nav-button" class="nav-link" href="#" style=""><img id="login-icon" src="images/login.png" style="margin-right:5px">Log in
-            </a>
-          </li>
-
-          <li class="nav-item white-bg">
-            <a id="signup-nav-button" class="nav-link" href="#"><img id="sign-up-icon" src="images/signup.png" style="margin-right:5px">Sign up</a>
-          </li>
-
-
-          <!-- If user is authorized -->
-          <li class="nav-item white-bg">
-            <a id="user-profile-button" class="nav-link" href="profile.html"><i class="fas fa-address-card" ></i> User profile</a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navigation END -->
-
-<!-- Breadcrumb
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Library</li>
-  </ol>
-</nav> -->
-
-
-
-
-  <!-- PROFILE -->
-
-  <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-      <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span class="font-weight-bold">Amelly</span><span class="text-black-50">amelly12@bbb.com</span><span> </span></div>
-      </div>
-      <div class="col-md-5 border-right">
-        <div class="p-3 py-5">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="text-right">Profile Settings</h4>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="First name" value=""></div>
-            <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="Surname"></div>
-          </div>
-
-          <div class="row mt-3">
-
-            <div class="col-md-12"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="Enter phone number" value=""></div>
-
-            <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="Enter address" value=""></div>
-
-            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="Enter email" value=""></div>
-          </div>
-
-          <div class="row mt-3">
-            <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="Country" value=""></div>
-
-            <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="State"></div>
-          </div>
-          <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" type="button">Save Profile</button>
-            <button class="btn btn-primary profile-button" type="button">Reset password</button>
-          </div>
         </div>
-      </div>
-
     </div>
-  </div>
+
+
+
+
+
+
+
+
+{% endblock %}
 
 
 
@@ -255,49 +99,37 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-  <!-- Footer START -->
-  <div class="footer-basic">
+<!-- Footer START -->
+<div class="footer-basic">
     <footer>
-      <div class="social">
-        <ul class="footer-icons">
-          <li><a href="#"><i class="fa fa-instagram footer-icon"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter footer-icon"></i></a></li>
-          <li><a href="#"><i class="fa fa-facebook footer-icon"></i></a></li>
-          <li><a href="tel:+47739500284"><i class="fas fa-phone footer-icon phone-icon"></i></a></li>
+        <div class="social">
+            <ul class="footer-icons">
+                <li><a href="#"><i class="fa fa-instagram footer-icon"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter footer-icon"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook footer-icon"></i></a></li>
+                <li><a href="tel:+47739500284"><i class="fas fa-phone footer-icon phone-icon"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <p style="font-size:20px"> Payment method:<br>
+                <img id="visa-mastercard" src="images/visa_mastercard.png">
+            </p>
+        </div>
+
+
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="index.html">Home</a></li>
+            <li class="list-inline-item"><a href="article.html">Articles</a></li>
+            <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+            <li class="list-inline-item"><a href="about.html">About</a></li>
         </ul>
-      </div>
-
-      <div class="d-flex justify-content-center">
-        <p style="font-size:20px"> Payment method:<br>
-          <img id="visa-mastercard" src="images/visa_mastercard.png">
-        </p>
-      </div>
-
-
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="index.html">Home</a></li>
-        <li class="list-inline-item"><a href="article.html">Articles</a></li>
-        <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-        <li class="list-inline-item"><a href="about.html">About</a></li>
-      </ul>
-      <p class="copyright">BWT</p>
+        <p class="copyright">BWT</p>
     </footer>
 
 
-
-  </div>
-  <!-- Footer END -->
-
+</div>
+<!-- Footer END -->
 
 
 </body>

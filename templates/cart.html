@@ -55,7 +55,6 @@
                                             {% for item in cart_item.variations.all %}
                                                 <p style="font-size:12px;margin-top:5px;">{{ item.variation_category | capfirst }}: {{ item.variation_value | capfirst }}</p>
                                             {% endfor %}
-
                                         {% endif %}
                                     </td>
                                     <td>In stock</td>
@@ -85,7 +84,8 @@
                                     <td class="text-right">{{ cart_item.product.price }} $</td>
 
                                     <td class="text-right">
-                                        <a href="{% url 'remove-cart-item' cart_item.product.id cart_item.id %}" onclick="return alert('Do you really want to delete this item(s) from cart ?')"
+                                        <a href="{% url 'remove-cart-item' cart_item.product.id cart_item.id %}"
+                                           onclick="return alert('Do you really want to delete this item(s) from cart ?')"
                                            class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
 
@@ -133,11 +133,11 @@
                             <a href="{% url 'index' %}" class="btn btn-block btn-light">Continue Shopping</a>
                         </div>
 
-                        <form action="checkout.html">
+{#                        <form action="checkout.html">#}
                             <div class="col-sm-12 col-md-6 text-right mt-3">
-                                <button class="btn btn-lg btn-block btn-dark">Checkout</button>
+                                <a href="{% url 'checkout' %}" class="btn btn-lg btn-block btn-dark">Checkout</a>
                             </div>
-                        </form>
+{#                        </form>#}
 
                     </div>
                 </div>
