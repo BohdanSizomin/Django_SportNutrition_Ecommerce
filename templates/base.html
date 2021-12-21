@@ -48,6 +48,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AUqQ5HiCNn7tY64rChzpYJlSsSZ3g4s9Mb8jMKTmKzHzo4xyKaxdYyem8JrBRzDtyNoN1TtgEy7wLpTZ&currency=USD&locale=en_PL"></script>
+
 </head>
 
 <body>
@@ -74,10 +77,10 @@
                 </li>
 
                 {% if user.id is not None %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Articles</a>
-                </li>
-            {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Articles</a>
+                    </li>
+                {% endif %}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
@@ -250,13 +253,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-{#<script type="text/javascript">#}
-{#    $(document).ready(function () { // check whether your page is loadded fully#}
-{#        $("img").each(function () {   // for each img it will assign img-responsive class or img-fluid#}
-{#            $(this).addClass("img-responsive")#}
-{#        })#}
-{#    })#}
-{#</script>#}
+
 
 </body>
 </html>
