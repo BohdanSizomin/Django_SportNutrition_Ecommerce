@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Category, SubCategory, Product, Variation
+from home.models import Category, SubCategory, Product, Variation,ReviewRating
 
 
 # Register your models here.
@@ -34,3 +34,4 @@ admin.site.register(SubCategory, SubCategoryAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Variation, VariationAdmin)
+admin.site.register(ReviewRating)

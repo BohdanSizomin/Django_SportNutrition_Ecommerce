@@ -81,4 +81,7 @@ class Account(AbstractBaseUser):
     def user_type(self):
         return self.type_user
 
+    def get_full_name(self):
+        return self.first_name + self.last_name
+
 # Create your models here.
