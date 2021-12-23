@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container ">
+        <div class="row mt-3">
+
+            <table class="table table-bordered table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">Order number</th>
+                    <th scope="col">Billing name</th>
+                    <th scope="col">Order Total</th>
+                    <th scope="col">Date:</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <th scope="col">={{ order.order_number }}</th>
+                        <td>{{ order.user.first_name }} {{ order.user.last_name }}</td>
+                        <td>{{ order.order_total }}$</td>
+                        <td>{{ order.created_at }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

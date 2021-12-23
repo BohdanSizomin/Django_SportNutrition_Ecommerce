@@ -777,3 +777,14 @@ label:hover ~ input:checked ~ label {
     color: white;
     font-size: 20px;
 }
+
+
+.btn-edit-profile {
+    margin: 5%;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.btn-edit-profile:hover {
+    font-size: 20px;
+}
