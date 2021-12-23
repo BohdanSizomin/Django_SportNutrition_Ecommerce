@@ -33,14 +33,13 @@ def login(request):
                 if is_cart_item_exists:
                     cart_item = CartItem.objects.filter(cart=cart)
 
-                    # Getting product variation by cart id
+                    # Getting the product variations by cart id
                     product_variation = []
                     for item in cart_item:
                         variation = item.variations.all()
                         product_variation.append(list(variation))
 
-                    # Getting the cart items from user to access his product variation
-
+                    # Get the cart items from the user to access his product variations
                     cart_item = CartItem.objects.filter(user=user)
                     ex_var_list = []
                     id = []
@@ -49,11 +48,14 @@ def login(request):
                         ex_var_list.append(list(existing_variation))
                         id.append(item.id)
 
+                    # product_variation = [1, 2, 3, 4, 6]
+                    # ex_var_list = [4, 6, 3, 5]
+
                     for pr in product_variation:
                         if pr in ex_var_list:
                             index = ex_var_list.index(pr)
-                            item.id = id[index]
-                            item = CartItem.objects.get(id=item.id)
+                            item_id = id[index]
+                            item = CartItem.objects.get(id=item_id)
                             item.quantity += 1
                             item.user = user
                             item.save()
@@ -62,20 +64,16 @@ def login(request):
                             for item in cart_item:
                                 item.user = user
                                 item.save()
-
-
             except:
                 pass
             auth.login(request, user)
-            messages.success(request, 'You have logged in successfully')
-
+            messages.success(request, 'You are now logged in.')
             url = request.META.get('HTTP_REFERER')
 
             # Redirecting to checkout in case if user tried to buy items not being authenticated
             try:
                 query = requests.utils.urlparse(url).query
-
-                # next=/cart/checkout
+                # next=/cart/checkout/
                 params = dict(x.split('=') for x in query.split('&'))
                 if 'next' in params:
                     nextPage = params['next']
@@ -126,8 +124,9 @@ def sign_up(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            # messages.success(request, 'Verification email has been sent to your email.Please verify it !')
-            return redirect('/authentication/login/?command=verification&email=' + email)
+            messages.success(request, 'Verification email has been sent to your email.Please verify it !')
+            return redirect('login')
+            # return redirect('/authentication/login/?command=verification&email=' + email)
     else:
         form = SignUpForm()
 

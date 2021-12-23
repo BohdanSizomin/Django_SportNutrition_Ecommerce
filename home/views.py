@@ -22,9 +22,12 @@ def index(request, category_slug=None):
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         products_count = products.count()
+
+
     else:
         products = Product.objects.all().filter(is_available=True).order_by('id')
-
+        for product in products:
+            reviews = ReviewRating.objects.filter(product_id=product.id, status=True)
         # Pagination
         paginator = Paginator(products, 3)
         page = request.GET.get('page')
@@ -37,6 +40,7 @@ def index(request, category_slug=None):
         "keywords": "ecommerce,sport nutrition,buy sport nutrition,protein buy",
         "products": paged_products,
         "products_count": products_count,
+        'reviews': reviews,
     }
     return render(request, 'index.html', context)
 

@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
+                  path('admin/', include('admin_honeypot.urls', namespace="admin_honeypot")),
+                  path('admin_panel/', admin.site.urls),
                   path('ckeditor', include('ckeditor_uploader.urls')),
                   path('', include('home.urls')),
 
