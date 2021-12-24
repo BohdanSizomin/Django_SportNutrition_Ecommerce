@@ -14,7 +14,7 @@ from orders.models import OrderProduct
 def index(request, category_slug=None):
     categories = None
     products = None
-
+    reviews = None
     if category_slug is not None:
         categories = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=categories, is_available=True)
@@ -28,6 +28,7 @@ def index(request, category_slug=None):
         products = Product.objects.all().filter(is_available=True).order_by('id')
         for product in products:
             reviews = ReviewRating.objects.filter(product_id=product.id, status=True)
+
         # Pagination
         paginator = Paginator(products, 3)
         page = request.GET.get('page')

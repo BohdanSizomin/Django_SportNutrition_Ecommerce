@@ -1,34 +1,42 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block title %} {{ title }} {% endblock %}
 {% block content %}
     {% load static %}
     <div class="container py-4">
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">About us</h1>
-        <p class="col-md-8 fs-4">BWT is the best sports nutrition store! Since 2022, we have been doing everything so that our customers can become more beautiful, healthier, stronger, and achieve impressive sports results</p>
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">About us</h1>
+                <p class="col-md-8 fs-4">BWT is the best sports nutrition store! Since 2022, we have been doing
+                    everything so that our customers can become more beautiful, healthier, stronger, and achieve
+                    impressive sports results</p>
 
-      </div>
-    </div>
-
-    <div class="row align-items-md-stretch">
-
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-black bg-light rounded-3">
-          <p>We are engaged in retail and wholesale of sports supplements and products, and maintain the most favorable prices for our customers. In addition, on our website or in the store, you will find information that will help you achieve your goals. We cooperate with professional coaches and athletes, regularly publish fresh articles about sports nutrition and its correct use</p>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <p>We have a large selection of sports nutrition products from the world's best brands: Optimum Nutrition, Activlab, MuscleTech, Olimp Labs, Muscle Pharm, BSN, Dymatize Nutrition, and many more.<br>
-          Convenient navigation of our website and the ability to filter sports supplements according to specified criteria have become important advantages</p>
 
+        <div class="row align-items-md-stretch">
+
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-black bg-light rounded-3">
+                    <p>We are engaged in retail and wholesale of sports supplements and products, and maintain the most
+                        favorable prices for our customers. In addition, on our website or in the store, you will find
+                        information that will help you achieve your goals. We cooperate with professional coaches and
+                        athletes, regularly publish fresh articles about sports nutrition and its correct use</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <p>We have a large selection of sports nutrition products from the world's best brands: Optimum
+                        Nutrition, Activlab, MuscleTech, Olimp Labs, Muscle Pharm, BSN, Dymatize Nutrition, and many
+                        more.<br>
+                        Convenient navigation of our website and the ability to filter sports supplements according to
+                        specified criteria have become important advantages</p>
+
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-<img id="about-responsive-image" src="{% static 'images/about-image.jpg' %}">
+    </div>
+    <img id="about-responsive-image" src="{% static 'images/about-image.jpg' %}">
 
 {% endblock %}
 
