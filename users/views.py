@@ -21,13 +21,20 @@ from orders.models import OrderProduct
 # Create your views here.
 def login(request):
     if request.method == 'POST':
+
         email = request.POST['email']
         password = request.POST['password']
+        remember_me = request.POST.get('remember_me', False)
 
         user = auth.authenticate(email=email, password=password)
 
         if user is not None:
             try:
+
+                # Remember me feature
+                if not remember_me:
+                    request.session.set_expiry(0)
+
                 cart = Cart.objects.get(cart_id=_cart_id(request))
                 is_cart_item_exists = CartItem.objects.filter(cart=cart).exists()
                 if is_cart_item_exists:

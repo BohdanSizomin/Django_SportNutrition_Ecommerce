@@ -22,6 +22,7 @@
                 <div class="col-12 col-sm-6 col-xs-3">
                     <main class="form-signin">
                         {% include 'alert.html' %}
+
                         <form action="{% url 'login' %}" class="form-container" method="POST">
                             {% csrf_token %}
                             <h1 class="h3 mb-3 fw-normal mt-3 mb-5">Please sign in</h1>
@@ -38,9 +39,11 @@
                             </div>
 
                             <div class="checkbox mb-3">
+
                                 <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
+                                    <input type="checkbox" name="remember_me" value="remember_me"> Remember me
                                 </label>
+
                             </div>
 
                             <button class="w-100 btn btn-lg btn-login" type="submit">Sign in</button>
