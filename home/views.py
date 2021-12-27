@@ -42,6 +42,8 @@ def index(request, category_slug=None):
         "products": paged_products,
         "products_count": products_count,
         'reviews': reviews,
+        'categories': categories,
+
     }
     return render(request, 'index.html', context)
 

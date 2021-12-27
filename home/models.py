@@ -8,41 +8,10 @@ from users.models import Account
 # Create your models here.
 
 
-class Brand(models.Model):
-    ENGLAND = 'England'
-    USA = "United States"
-    POLAND = "Poland"
-    HUNGARY = "Hungary"
-    CANADA = "Canada"
-
-    BRAND_CHOICES = [
-        (ENGLAND, 'England'),
-        (USA, 'United States'),
-        (POLAND, "Poland"),
-        (HUNGARY, "Hungary"),
-        (CANADA, "Canada"),
-    ]
-
-    slug = models.SlugField(max_length=50)
-    name = models.CharField(max_length=100)
-    manufacturer = models.CharField(
-        max_length=20,
-        choices=BRAND_CHOICES,
-        default=USA,
-    )
-
-    def __str__(self):
-        self.name + self.manufacturer
-
-    class Meta:
-        verbose_name = 'Brand'
-        verbose_name_plural = 'Brands'
-
-
 class SubCategory(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50)
-    description = RichTextField(max_length=255, blank=False)
+    description = RichTextField(max_length=700, blank=False)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, default=None, blank=True)
 
     def __str__(self):
@@ -56,7 +25,7 @@ class SubCategory(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=50)
-    description = RichTextField(max_length=255, blank=False)
+    description = RichTextField(max_length=700, blank=False)
 
     def __str__(self):
         return self.name
@@ -87,11 +56,6 @@ class Product(models.Model):
 
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-
-    # Product variants
-    # weight = models.CharField(max_length=20, choices=WEIGHT_CHOICES, default=kilogram)
-    # taste = models.CharField(max_length=20, choices=TASTE_CHOICES, default=chocolate)
-    # brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -14,6 +14,7 @@ media
 uploads
 # Backup files #
 *.bak
+.ebextensions
 
 # If you are using PyCharm #
 # User-specific stuff
