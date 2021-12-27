@@ -1,0 +1,66 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} |
+    {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        body {
+            font-family: 'Russo One', sans-serif;
+        }
+
+
+        #user-tools {
+            color: white;
+        }
+
+        tbody a {
+            color: black !important;
+            transition: .3s !important;
+            opacity: 100%;
+        }
+
+        tbody a:hover {
+            opacity: 65%;
+            font-size: 13px;
+        }
+
+        #recent-actions-module h2 {
+            color: black !important;
+        }
+
+        #content h1 {
+            color: black;
+        }
+
+        #content h3 {
+            color: black;
+        }
+
+        .module ul li a {
+            color: black !important;
+            text-decoration: underline;
+            transition: 0.3s !important;
+        }
+
+        .module ul li a:hover {
+            text-decoration: none;
+        }
+
+        .deletelink{
+            color:black !important;
+        }
+
+    </style>
+{% endblock %}
+{% block branding %}
+    <h1 id="site-name"><a class="logo" href="{% url 'admin:index' %}"
+                          style="color:white;font-family: 'Righteous', cursive;">BWT</a>
+    </h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
