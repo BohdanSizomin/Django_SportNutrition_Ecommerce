@@ -1,5 +1,6 @@
 from django.contrib.messages import constants as messages
 from pathlib import Path
+import django_heroku
 import os
 from dotenv import load_dotenv
 
@@ -161,3 +162,4 @@ GRAPH_MODELS = {
     'all_applications': True,
     'group_models': True,
 }
+django_heroku.settings(locals())
