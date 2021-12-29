@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangosportnutritionecommerce-env.eba-2emrimes.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
-
     'home',
     'contact',
     'users',
@@ -157,10 +156,6 @@ EMAIL_USE_TLS = True
 SESSION_EXPIRE_SECONDS = 3600
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = 'index'
-
-
-
-
 
 GRAPH_MODELS = {
     'all_applications': True,
