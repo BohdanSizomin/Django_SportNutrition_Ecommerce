@@ -45,14 +45,14 @@ class Product(models.Model):
     image = models.ImageField(upload_to='media/items')
 
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    old_price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, default=0)
+    old_price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, default=0)
 
     stock = models.IntegerField(default=10)
     is_available = models.BooleanField(default=True)
     is_hot_offer = models.BooleanField(default=False)
 
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    subcategory = models.ForeignKey('SubCategory', on_delete=models.CASCADE)
+    subcategory = models.ForeignKey('SubCategory', on_delete=models.CASCADE, blank=True, null=True)
 
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)

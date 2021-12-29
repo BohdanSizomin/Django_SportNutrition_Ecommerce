@@ -67,30 +67,31 @@
                                 <span class="badge product-detail-in-stock-badge">In stock</span>
 
                                 {# Variants#}
-
-                                <div class="row">
-                                    <div class="item-option-select my-3">
-                                        <select name='taste' class="form-control" required>
-                                            <option value="" disabled selected>Choose taste</option>
-                                            {% for i in single_product.variation_set.tastes %}
-                                                <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
-                                            {% endfor %}
-                                        </select>
+                            {% if single_product. %}
+                                    <div class="row">
+                                        <div class="item-option-select my-3">
+                                            <select name='taste' class="form-control" required>
+                                                <option value="" disabled selected>Choose taste</option>
+                                                {% for i in single_product.variation_set.tastes %}
+                                                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
 
 
-                                <div class="row">
-                                    <div class="item-option-select my-3">
-                                        <select name='weight' class="form-control" required>
-                                            <option value="" disabled selected>Choose weight</option>
-                                            {% for i in single_product.variation_set.weights %}
-                                                <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
-                                            {% endfor %}
+                                    <div class="row">
+                                        <div class="item-option-select my-3">
+                                            <select name='weight' class="form-control" required>
+                                                <option value="" disabled selected>Choose weight</option>
+                                                {% for i in single_product.variation_set.weights %}
+                                                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                                                {% endfor %}
 
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
+
 
 
                                 </div>

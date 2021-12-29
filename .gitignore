@@ -148,3 +148,8 @@ GitHub.sublime-settings
 **/__pycache__
 **/.DS_Store
 /django_ecommerce_venv/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
