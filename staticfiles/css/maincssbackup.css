@@ -1,0 +1,100 @@
+body{
+
+  font-family: 'Russo One', sans-serif;
+}
+
+a{text-decoration: none;}
+
+.navbar{
+  height:10vh;
+  background-color: #4a89ff !important;
+  border-radius:0% 0% 10% 10%;
+}
+
+.navbar ul li a {
+  color:black !important;
+  transition: 0.5s;
+}
+
+.navbar li a:hover {
+  font-size:18px;
+}
+
+#logo{
+  font-size:3rem;
+  font-family: 'Righteous', cursive;
+  text-shadow: 2px 2px black;
+}
+#sign-up-icon{
+  width:25px;
+  height:25px;
+  margin-right:5px;
+}
+#login-icon{
+  width:25px;
+  height:25px;
+  margin-right:5px;
+}
+
+/*PC version dropdown on hover*/
+#login-nav-button:hover{
+ background-color:#5340ff;
+ border-radius:20% 20% 20% 20%;
+}
+
+#signup-nav-button:hover{
+ background-color:#40a3ff;
+ border-radius:20% 20% 20% 20%;
+}
+
+.dropdown-menu a{
+  font-size:12px;
+}
+
+.dropdown-menu{
+  background-color: #ccdeff !important;
+}
+
+.dropdown-text-center {
+  text-align: center;
+}
+
+.dropdown-item{
+  padding:2vh;
+}
+
+.nav-product-dropdown a{
+  font-size:14px;
+  text-decoration: none;  
+}
+
+/*.black-border{
+  border:1px solid black;
+  }*/
+
+  .dropdown-hover-white:hover{
+    background-color: white !important;
+  }
+
+  #dont-know-what-to-choose{
+    font-size:14px;
+  }
+
+  #dont-know-what-to-choose:hover{
+    font-size:18px;
+  }
+
+
+  /*For media queries*/
+  @media(max-width:992px){
+    .navbar{
+      height:11.5vh;
+      background-color: #4a89ff !important;
+      border-radius:0;
+    }
+
+    .dropdown-item{
+      padding:1vh;
+    }
+
+  }
