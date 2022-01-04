@@ -47,13 +47,6 @@ def index(request, category_slug=None):
     return render(request, 'index.html', context)
 
 
-def contact(request):
-    context = {
-        "title": "How to contact us",
-    }
-    return render(request, 'contact.html', context)
-
-
 def about(request):
     context = {
         "title": "About us",
